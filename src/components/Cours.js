@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import "../styles/Cours.css";
 
 
-const Cours = () => {
+const Cours = (props) => {
   const [cours, setCours] = useState([]);
   const [professeurs, setProfesseurs] = useState([]);
 
