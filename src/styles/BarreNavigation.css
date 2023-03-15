@@ -1,0 +1,75 @@
+.BarreNavigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFA500; 
+    padding: 1rem;
+  }
+  
+  .BarreNavigation a {
+    text-decoration: none;
+    color: white; 
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .BarreNavigation a:hover {
+    background-color: #FFD700; 
+  }
+  
+  .BarreNavigation a.active {
+    font-weight: bold;
+    background-color: #FFD700; 
+  }
+  
+  .drawer {
+    display: none;
+  }
+  
+  .drawer-btn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: #F0E68C; 
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .drawer-btn:hover {
+    color: #FFD700; 
+  }
+  
+  @media screen and (max-width: 768px) {
+    .BarreNavigation {
+      flex-direction: column;
+      position: relative;
+    }
+  
+    .BarreNavigation a {
+      display: none;
+    }
+  
+    .drawer {
+      display: block;
+      background-color: #FFA500; 
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      transition: 0.3s;
+    }
+  
+    .drawer a {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  
+    .drawer-btn {
+      display: block;
+    }
+  }
+  
