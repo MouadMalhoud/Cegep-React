@@ -10,15 +10,15 @@ const Cours = (props) => {
     naviguer("/Professeurs");
   }
 
-  const [options, setOptions] = useState([]);
+  const [profs, setProfs] = useState([]);
   useEffect(() => {
-    const storedOptions = getLocalStorageProf();
-    setOptions(storedOptions);
+    const storedProfs = getLocalStorageProf();
+    setProfs(storedProfs);
   }, []);
 
   const getLocalStorageProf = () => {
-    const storedOptions = localStorage.getItem('options');
-    return storedOptions ? JSON.parse(storedOptions) : [];
+    const storedProfs = localStorage.getItem('profs');
+    return storedProfs ? JSON.parse(storedProfs) : [];
   };
 
   const handleChangeOption = (event) => {
@@ -120,10 +120,10 @@ const Cours = (props) => {
         <br />
         <label>
           Professeur :
-          <select onChange="handleChangeOption" required> 
-          {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
+          <select onChange={handleChangeOption} required> 
+          {profs.map((prof, index) => (
+          <option key={index} value={profs.nom}>
+           {index+1}. {prof.nom} {prof.prenom}
           </option> 
           ))}
          </select>
