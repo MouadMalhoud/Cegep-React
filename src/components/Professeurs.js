@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Card from "../UI/Card.js";
 const Professeurs = (prop) => {
-  const localprofs = localStorage.getItem('profs')
-  const [professeurs, setProfesseurs] = useState(localprofs ? JSON.parse(localprofs) : []);
+  const localProfs = localStorage.getItem('profs')
+  const [professeurs, setProfesseurs] = useState(localProfs ? JSON.parse(localProfs) : []);
 
   const [nouveauProfesseur, setNouveauProfesseur] = useState({
     nom: "",
@@ -36,6 +36,7 @@ const Professeurs = (prop) => {
   return (
     <div>
       <h1>Liste des professeurs</h1>
+      <h3>Cette page vous permettra d'ajouter ou de voir la liste des professeurs disponibles.</h3>
       <ul className="liste-professeur">
         {professeurs.map((p, index) => (
           <Card key={index} date={p.dateEmbauche} nom={p.nom} prenom={p.prenom} photo={p.photo}/>
@@ -61,10 +62,10 @@ const Professeurs = (prop) => {
         <br />
         <label>
           Photo (lien/URL) :
-          <input type="text" name="photo" value={nouveauProfesseur.photo} onChange={ChangementHandler} required />
+          <input className="type-url" type="text" name="photo" value={nouveauProfesseur.photo} onChange={ChangementHandler} required />
         </label>
         <br />
-        <button type="submit">-Embaucher-</button>
+        <button type="submit">Embaucher</button>
       </form>
     </div>
   );

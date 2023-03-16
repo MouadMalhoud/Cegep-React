@@ -4,6 +4,8 @@ input[type="text"], input[type=number], input[type=date] {
     background-color: #FFD700; 
     border: 2px solid #FFA500; 
     gap:1em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
   }
 
 button {
@@ -16,6 +18,9 @@ button {
 button:hover{
 background-color: #FFD700; 
 border: 2px solid #FFA500;
+}
+.type-url{
+    width: 350px;
 }
 button:active{
   background-color: #FFA500;

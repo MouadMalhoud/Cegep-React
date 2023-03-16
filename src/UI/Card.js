@@ -3,8 +3,8 @@ import { useState } from 'react';
 import './Card.css';
 
 const Card = (props) => {
-  const localprofs = localStorage.getItem('profs');
-  const [profs, setProfs] = useState(JSON.parse(localprofs));
+  const localProfs = localStorage.getItem('profs');
+  const [profs, setProfs] = useState(JSON.parse(localProfs));
 
   console.log(profs)
 
@@ -15,7 +15,7 @@ const Card = (props) => {
       <div className='card-info'>
         <h3>nom : {props.nom}</h3> 
         <h3>prenom : {props.prenom}</h3>
-        date d'embauche : {props.dateEmbauche}
+        <h3>date d'embauche : {props.date}</h3>
       </div>
     
    

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Cours.css";
 
 
 const Cours = (props) => {
   const [cours, setCours] = useState([]);
   const [professeurs, setProfesseurs] = useState([]);
+  // const localCours = localStorage.getItem("cours")
+  // const [cours, setCours] = useState(localCours ? JSON.parse(localCours) : []);
 
   const [nouveauCours, setNouveauCours] = useState({
     titre: "",
@@ -19,12 +21,15 @@ const Cours = (props) => {
     setNouveauCours({ ...nouveauCours, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!professeurs.includes(nouveauCours.professeur)) {
-      setProfesseurs([...professeurs, nouveauCours.professeur]);
-    }
+
+  
+  
+  
+  // useEffect(()=>{
+  //   localStorage.setItem('cours', JSON.stringify(cours))
+  // }, [cours])
+    const handleSubmit = (e) => {
+      e.preventDefault();
 
     setCours([...cours, { ...nouveauCours, elevesInscrits: 0 }]);
 
@@ -36,6 +41,11 @@ const Cours = (props) => {
       dateFin: "",
       professeur: "",
     });
+    if (!professeurs.includes(nouveauCours.professeur)) {
+        setProfesseurs([...professeurs, nouveauCours.professeur]);
+    }
+
+    
   };
 
   const dateDebut = new Date(nouveauCours.dateDebut);
