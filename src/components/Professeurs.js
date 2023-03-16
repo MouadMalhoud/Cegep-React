@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Card from "../UI/Card.js";
 const Professeurs = (prop) => {
-  const [professeurs, setProfesseurs] = useState([]);
+  const localprofs = localStorage.getItem('profs')
+  const [professeurs, setProfesseurs] = useState(localprofs ? JSON.parse(localprofs) : []);
 
   const [nouveauProfesseur, setNouveauProfesseur] = useState({
     nom: "",
     prenom: "",
     dateEmbauche: "",
     photo: "",
+    nbCours: 0,
   });
 
   const ChangementHandler = (e) => {
@@ -18,12 +20,14 @@ const Professeurs = (prop) => {
     e.preventDefault();
 
     setProfesseurs([...professeurs, { ...nouveauProfesseur, listeCours: [] }]);
-
+    console.log(professeurs)
+    localStorage.setItem('profs', JSON.stringify(professeurs))
     setNouveauProfesseur({
       dateEmbauche: "",
       nom: "",
       prenom: "",
       photo: "",
+      nbCours: 0,
     });
   };
 
