@@ -27,3 +27,19 @@ button:active{
   border: 2px solid #FFD700; 
   transform: translateY(2px);
 }
+
+select{
+  padding: 5px 100px;
+  border-radius: 4px;
+  background-color: #FFD700;
+  border: 2px solid #FFA500;
+}
+
+.ajouter-prof-btn{
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #FFA500; 
+  border: 2px solid red; 
+  cursor: pointer;
+  text-decoration: underline;
+}

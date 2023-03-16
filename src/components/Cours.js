@@ -1,8 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Cours.css";
+import { useNavigate } from "react-router-dom";
+
 
 
 const Cours = (props) => {
+  const naviguer = useNavigate();
+  const handleNaviguerClick = () => {
+    naviguer("/Professeurs");
+  }
+
+  const [options, setOptions] = useState([]);
+  useEffect(() => {
+    const storedOptions = getLocalStorageProf();
+    setOptions(storedOptions);
+  }, []);
+
+  const getLocalStorageProf = () => {
+    const storedOptions = localStorage.getItem('options');
+    return storedOptions ? JSON.parse(storedOptions) : [];
+  };
+
+  const handleChangeOption = (event) => {
+    console.log('Prof sélectionné:', event.target.value);
+  };  
+
   const [cours, setCours] = useState([]);
   const [professeurs, setProfesseurs] = useState([]);
   // const localCours = localStorage.getItem("cours")
@@ -57,6 +79,8 @@ const Cours = (props) => {
     alert("ATTENTION. Les dates des cours doivent être le 23 janvier et le 6 juin pour la session acteulle.");
     return;
   } 
+
+  // AJOUTER CODE FILTERCOURS 
   return (
     <div className="conteneur">
       <h1 className="titre-cours">Liste des cours</h1>
@@ -65,7 +89,7 @@ const Cours = (props) => {
           <li key={index}>{acc.titre} - {acc.professeur} - {acc.elevesInscrits} Élèves inscrits</li>
         ))}
       </ul>
-
+      
       <h2 className="txt-ajouter-cours">Ajouter un cours</h2>
       <div className="lbl-cours">
       <form onSubmit={handleSubmit}>
@@ -96,8 +120,18 @@ const Cours = (props) => {
         <br />
         <label>
           Professeur :
-          <input type="text" name="professeur" value={nouveauCours.professeur} onChange={saisieHandler} required />
+          <select onChange="handleChangeOption" required> 
+          {options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option> 
+          ))}
+         </select>
         </label>
+          <div>
+            <br></br>
+            <button className="ajouter-prof-btn" onClick={handleNaviguerClick} type="button">Vous ne trouvez pas votre enseignant ?</button>
+          </div>
         <br />
         <button type="submit">Ajouter un cours</button>
       </form>
