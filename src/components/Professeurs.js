@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Card from "../UI/Card.js";
 const Professeurs = (prop) => {
   const [professeurs, setProfesseurs] = useState([]);
 
@@ -32,7 +32,7 @@ const Professeurs = (prop) => {
       <h1>Liste des professeurs</h1>
       <ul className="liste-professeur">
         {professeurs.map((p, index) => (
-          <li key={index}>Professeur #{index+1} : {p.prenom} {p.nom}  |  Date d'embauche: {p.dateEmbauche}</li>
+          <Card key={index} date={p.dateEmbauche} nom={p.nom} prenom={p.prenom} photo={p.photo}/>
         ))}
       </ul>
 
