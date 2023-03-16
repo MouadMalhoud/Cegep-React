@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Card.css';
 
 const Card = (props) => {
-  const localprofs = localStorage.getItem(props.key);
+  const localprofs = localStorage.getItem('profs');
   const [profs, setProfs] = useState(JSON.parse(localprofs));
 
   console.log(profs)

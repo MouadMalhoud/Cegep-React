@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../UI/Card.js";
 const Professeurs = (prop) => {
   const localprofs = localStorage.getItem('profs')
@@ -15,13 +15,14 @@ const Professeurs = (prop) => {
   const ChangementHandler = (e) => {
     setNouveauProfesseur({ ...nouveauProfesseur, [e.target.name]: e.target.value });
   };
-
+  useEffect(() =>{
+    localStorage.setItem('profs', JSON.stringify(professeurs))
+  }, [professeurs])
   const submitHandler = (e) => {
     e.preventDefault();
 
     setProfesseurs([...professeurs, { ...nouveauProfesseur, listeCours: [] }]);
-    console.log(professeurs)
-    localStorage.setItem('profs', JSON.stringify(professeurs))
+    
     setNouveauProfesseur({
       dateEmbauche: "",
       nom: "",
@@ -30,6 +31,7 @@ const Professeurs = (prop) => {
       nbCours: 0,
     });
   };
+  
 
   return (
     <div>

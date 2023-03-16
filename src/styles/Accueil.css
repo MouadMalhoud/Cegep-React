@@ -1,14 +1,32 @@
-.logo{
-    height:100%;
-    padding-right: 60%;
-}
+
 .desc-detaille-accueil{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: #FFD700;
+    border: #B2C100 5px solid;
+    margin-bottom: 1em;
+    width: 600px;
+    
 }
 :root{
     background-color: #fdefb0;
 }
+.conteneur{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .separatrice-accueil{
     border: 3px solid #B2C100;
 
+    width: 100%;
+    margin: 0;
+
+}
+ul{
+    list-style-type: none;
 }
