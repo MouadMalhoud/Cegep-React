@@ -3,6 +3,7 @@ import "../styles/Cours.css";
 import { useNavigate } from "react-router-dom";
 import CardCours from "../UI/CardCours.js";
 import FiltreCours from "./FiltrerCours"; 
+import NaviguerProf from "./NaviguerProf";
 
 
 const Cours = (props) => {
@@ -16,11 +17,6 @@ const Cours = (props) => {
   //   return session.date.getFullYear().toString() === filteredSession;
   // });
 
-  // pour naviguer vers professeur (vous ne trouvez pas votre enseignant?)
-  const naviguer = useNavigate();
-  const handleNaviguerClick = () => {
-    naviguer("/Professeurs");
-  }
 // get les enseignants du localStorage
   const [profs, setProfs] = useState([]);
   useEffect(() => {
@@ -143,11 +139,7 @@ const Cours = (props) => {
           ))}
          </select>
         </label>
-          <div>
-            <br></br>
-            <button className="ajouter-prof-btn" onClick={handleNaviguerClick} type="button">Vous ne trouvez pas votre enseignant ?</button>
-          </div>
-        <br />
+        <NaviguerProf/>
         <button type="submit">Ajouter un cours</button>
       </form>
       </div>
