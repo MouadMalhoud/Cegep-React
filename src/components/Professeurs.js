@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Card from "../UI/Card.js";
 import "../styles/Professeur.css";
 const Professeurs = (prop) => {
+  let localCours = localStorage.getItem('cours')
+  let liCours = JSON.parse(localCours)
   const localProfs = localStorage.getItem('profs')
   const [professeurs, setProfesseurs] = useState(localProfs ? JSON.parse(localProfs) : []);
 
@@ -10,15 +12,25 @@ const Professeurs = (prop) => {
     prenom: "",
     dateEmbauche: "",
     photo: "",
-    nbCours: 0,
+    nbCours: [],
   });
+  
+
+  useEffect(() => {
+    let localCours = localStorage.getItem('cours')
+    let liCours = JSON.parse(localCours)
+    liCours.map((c, index) => (
+      c.professeurs
+    ))}, [localCours])
 
   const ChangementHandler = (e) => {
     setNouveauProfesseur({ ...nouveauProfesseur, [e.target.name]: e.target.value });
   };
+
   useEffect(() =>{
     localStorage.setItem('profs', JSON.stringify(professeurs))
   }, [professeurs])
+
   const submitHandler = (e) => {
     e.preventDefault();
 

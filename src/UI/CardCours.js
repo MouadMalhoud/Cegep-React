@@ -1,19 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import './Card.css';
+import "../UI/Card.css";
 
 const CardCours = (props) => {
   const localCours = localStorage.getItem('cours');
   const [cours, setCours] = useState(JSON.parse(localCours));
 
-  console.log(cours)
-
   return (
-    <div className='card-cours'>
+    <div className='card'>
          
       <div className='card-info'>
-        <h3>Nom Cours : {props.nom}</h3> 
-        <h3>Nombre Étudiant : {props.prenom}</h3>
+        <h3>Nom Cours : {props.titre}</h3> 
+        <h3>Nombre Étudiant : {props.nbEleves}</h3>
       </div>
 
     </div>

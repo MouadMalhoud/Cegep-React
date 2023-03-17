@@ -6,8 +6,6 @@ const Card = (props) => {
   const localProfs = localStorage.getItem('profs');
   const [profs, setProfs] = useState(JSON.parse(localProfs));
 
-  console.log(profs)
-
   return (
     <div className='card'>
          

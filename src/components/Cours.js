@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Cours.css";
 import { useNavigate } from "react-router-dom";
+import CardCours from "../UI/CardCours.js";
 
 
 
@@ -22,7 +23,6 @@ const Cours = (props) => {
   };
 
   const handleChangeOption = (event) => {
-    console.log('Prof sélectionné:', event.target.value);
   };  
 
   const localCours = localStorage.getItem("cours")
@@ -79,9 +79,9 @@ const Cours = (props) => {
   return (
     <div className="conteneur">
       <h1 className="titre-cours">Liste des cours</h1>
-      <ul>
-        {cours.map((acc, index) => (
-          <li key={index}>{acc.titre} - {acc.professeur} - {acc.elevesInscrits} Élèves inscrits</li>
+      <ul className="liste-cours">
+        {cours.map((c, index) => (
+          <CardCours key={index} titre={c.titre} prof={c.professeur} nbEleves={c.elevesInscrits}/>
         ))}
       </ul>
       
