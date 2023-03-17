@@ -10,7 +10,7 @@
     transform: translate(-50%,-50%);
     border: 3px solid #B2C100;
   }
-form{
+.formy{
     display: flex;
     flex-direction: column;
     justify-content: center;

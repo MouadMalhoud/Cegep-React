@@ -7,7 +7,7 @@ function Modal(props){
     return(
         <div className="modal dropshadow">
         <h3>Ajouter un étudiant à ce cours</h3>
-             <form>
+             <form className='formy'>
                 <label>Nom:</label>
                 <input type="text" required />
                 <label>Prénom:</label>
