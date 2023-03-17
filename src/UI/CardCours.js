@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import "../UI/Card.css";
+import Modal from './Modal';
+import Background from './Background'
 
 const CardCours = (props) => {
   const localCours = localStorage.getItem('cours');
@@ -25,6 +27,8 @@ const CardCours = (props) => {
     <button className="btn-info" onClick={modalState}>
         Plus d'informations ...
     </button>
+    {modalIsActive && <Modal onClick={modalState}/>}
+    {modalIsActive && <Background onClick={modalState}/>}
 
     </div>
   );

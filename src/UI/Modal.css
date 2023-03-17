@@ -1,0 +1,21 @@
+.modal{
+    position: absolute;
+    z-index: 5;
+    background: #FFA500;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    width: 20em;
+    padding: 1em;
+    transform: translate(-50%,-50%);
+    border: 3px solid #B2C100;
+  }
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-align: left;
+    font-weight: 500;
+  }

@@ -11,7 +11,7 @@ const FiltreCours = (props) => {
     <div className='filtre-annee'>
       <div className='filtre-annee_controle'>
         <label>Filtrer par session (automne/hiver)</label>
-{//}          <select value={props.selected} onChange={menuDeroulantHandler}>
+{//}          <select value={props.selected } onChange={menuDeroulantHandler}>
 }        <select value={props.selected}>
           <option value='2023H'>Hiver 2023</option>
           <option value='2023A'>Automne 2023</option>

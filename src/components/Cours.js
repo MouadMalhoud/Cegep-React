@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Cours.css";
-import { useNavigate } from "react-router-dom";
 import CardCours from "../UI/CardCours.js";
 import FiltreCours from "./FiltrerCours"; 
 import NaviguerProf from "./NaviguerProf";
@@ -96,6 +95,10 @@ const Cours = (props) => {
       // onChangementFiltre={filterChangeHandler}
       />  
       <ul className="liste-cours">
+        <CardCours key='1' titre='Algorithmie et programmation' prof='Elbend Tremblay' nbEleves='3' />
+        <CardCours key='2' titre='Base de données' prof='Simon Delisle' nbEleves='4' />
+        <CardCours key='3' titre='Web et base de données' prof='Mouad Malhoud' nbEleves='20' />
+
         {cours.map((c, index) => (
           <CardCours key={index} titre={c.titre} prof={c.professeur} nbEleves={c.elevesInscrits}/>
         ))}
