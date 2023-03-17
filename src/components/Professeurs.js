@@ -14,14 +14,17 @@ const Professeurs = (prop) => {
     photo: "",
     nbCours: [],
   });
-  
+  let profsAndCours = []
+  liCours.map((c, index) => (
+    profsAndCours = c[index]
+  ))
 
   useEffect(() => {
     let localCours = localStorage.getItem('cours')
     let liCours = JSON.parse(localCours)
-    liCours.map((c, index) => (
-      c.professeurs
-    ))}, [localCours])
+    
+      console.log(profsAndCours)
+  }, [localCours, profsAndCours])
 
   const ChangementHandler = (e) => {
     setNouveauProfesseur({ ...nouveauProfesseur, [e.target.name]: e.target.value });
@@ -29,6 +32,7 @@ const Professeurs = (prop) => {
 
   useEffect(() =>{
     localStorage.setItem('profs', JSON.stringify(professeurs))
+
   }, [professeurs])
 
   const submitHandler = (e) => {
@@ -49,7 +53,7 @@ const Professeurs = (prop) => {
   return (
     <div>
       <h1>Liste des professeurs</h1>
-      <h3>Cette page vous permettra d'ajouter ou de voir la liste des professeurs disponibles.</h3>
+      <p>Cette page vous permettra d'ajouter ou de voir la liste des professeurs disponibles.</p>
       <ul className="liste-professeur">
         {professeurs.map((p, index) => (
           <Card key={index} date={p.dateEmbauche} nom={p.nom} prenom={p.prenom} photo={p.photo}/>

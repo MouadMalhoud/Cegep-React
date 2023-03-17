@@ -2,15 +2,26 @@ import React, { useEffect, useState } from "react";
 import "../styles/Cours.css";
 import { useNavigate } from "react-router-dom";
 import CardCours from "../UI/CardCours.js";
-
+import FiltreCours from "./FiltrerCours"; 
 
 
 const Cours = (props) => {
+
+  // // Filtrer session
+  //  const [filteredSession, setFilteredSession] = useState('2022H');
+  // const filterChangeHandler = (selectedSession) => {
+  //   setFilteredSession(selectedSession);
+  // };
+  // const sessionFiltrees = props.items.filter((session) => {
+  //   return session.date.getFullYear().toString() === filteredSession;
+  // });
+
+  // pour naviguer vers professeur (vous ne trouvez pas votre enseignant?)
   const naviguer = useNavigate();
   const handleNaviguerClick = () => {
     naviguer("/Professeurs");
   }
-
+// get les enseignants du localStorage
   const [profs, setProfs] = useState([]);
   useEffect(() => {
     const storedProfs = getLocalStorageProf();
@@ -79,6 +90,15 @@ const Cours = (props) => {
   return (
     <div className="conteneur">
       <h1 className="titre-cours">Liste des cours</h1>
+      <p>Cette page vous permettera d'ajouter des cours et d'afficher leur détail.
+        <br>
+        </br>
+        Vous pourrez également ajouter des élèves à chacun des cours.
+      </p>
+      <FiltreCours
+      // selected={filteredSession}
+      // onChangementFiltre={filterChangeHandler}
+      />  
       <ul className="liste-cours">
         {cours.map((c, index) => (
           <CardCours key={index} titre={c.titre} prof={c.professeur} nbEleves={c.elevesInscrits}/>
