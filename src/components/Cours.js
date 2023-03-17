@@ -25,10 +25,9 @@ const Cours = (props) => {
     console.log('Prof sélectionné:', event.target.value);
   };  
 
-  const [cours, setCours] = useState([]);
+  const localCours = localStorage.getItem("cours")
+  const [cours, setCours] = useState(localCours ? JSON.parse(localCours) : []);
   const [professeurs, setProfesseurs] = useState([]);
-  // const localCours = localStorage.getItem("cours")
-  // const [cours, setCours] = useState(localCours ? JSON.parse(localCours) : []);
 
   const [nouveauCours, setNouveauCours] = useState({
     titre: "",
@@ -43,13 +42,9 @@ const Cours = (props) => {
     setNouveauCours({ ...nouveauCours, [e.target.name]: e.target.value });
   };
 
-
-  
-  
-  
-  // useEffect(()=>{
-  //   localStorage.setItem('cours', JSON.stringify(cours))
-  // }, [cours])
+   useEffect(()=>{
+     localStorage.setItem('cours', JSON.stringify(cours))
+   }, [cours])
     const handleSubmit = (e) => {
       e.preventDefault();
 

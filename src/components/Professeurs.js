@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../UI/Card.js";
+import "../styles/Professeur.css";
 const Professeurs = (prop) => {
   const localProfs = localStorage.getItem('profs')
   const [professeurs, setProfesseurs] = useState(localProfs ? JSON.parse(localProfs) : []);
